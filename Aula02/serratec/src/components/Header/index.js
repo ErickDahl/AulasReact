@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 import logoImg from '../../assets/logo.png';
 
-import { Container } from './styles';
+import { Container, Title } from './styles';
 
-const Header = () => {
+const Header = ({title}) => {
   return (
     <>
       <Container>
@@ -24,6 +24,8 @@ const Header = () => {
           </li>
         </ul>
       </Container>
+
+      <Title>{title}</Title>
     </>
   )
 }

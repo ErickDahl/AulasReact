@@ -6,7 +6,7 @@ import api from '../../Services/API';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 
-import { Title, Form, ErrorMessage, Tasks } from './styles';
+import {Form, ErrorMessage, Tasks } from './styles';
 
 
 const Tarefas = () => {
@@ -74,9 +74,7 @@ const Tarefas = () => {
 
   return (
     <>
-      <Header />
-
-      <Title>Lista de Tarefas</Title>
+      <Header title="Lista de Tarefas" />
 
       <Form onSubmit={handleAddTask}>
         <Input 

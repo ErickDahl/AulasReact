@@ -1,17 +1,12 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  background-color: ${props => props.ativo ? "#fff" : "#000"};
-
-  h1 {
-    color: yellow;
+export const Resumo = styled.div`
+  h2{
+    margin-bottom:20px;
+    margin-top: 20px;
   }
 
-  p {
-    font-size: 30px;
-  }
-
-  .texto{
-    color: green;
+  p{
+    line-height: 30px;
   }
 `;
