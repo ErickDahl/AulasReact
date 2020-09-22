@@ -1,60 +1,58 @@
-import React, { useState, useEffect, useCallback, useMemo } from 'react';
-import {Resumo} from './styles';
+import React, {useState, useEffect, useCallback, useMemo} from 'react';
 
-import Header from '../../components/Header';
 import api from '../../Services/API';
+import Header from '../../components/Header';
+
+import { Resumo } from './styles';
 
 const Dashboard = () => {
-  const [task, setTask] = useState([]);
+  const [tasks, setTasks] = useState([]);
 
-  // const loadTaks = async () =>{
+  // const loadTasks = async () => {
   //   const response = await api.get('tarefas');
-  //   setTask(response.data);
+  //   setTasks(response.data);
   // }
 
-  const loadTaks = useCallback(
+  const loadTasks = useCallback(
     async () => {
       const response = await api.get('tarefas');
-      setTask(response.data);
+      setTasks(response.data);
+      console.log("loadTasks", response);
     }, []
   );
 
-  const task_concluded_qtd = useMemo(
+  useEffect(() => {
+    loadTasks()
+  }, [loadTasks]);
+
+  const tasks_concluded_qtd = useMemo(
     () => {
-      const filtered = task.filter(task => {
+      const filtered = tasks.filter(task => {
         return task.concluido === true;
       })
 
       return filtered.length;
-
-    }, [task]
+    }, [tasks]
   )
 
-  const task_qtd = useMemo(
-    () => task.length, [task]
+  const tasks_qtd = useMemo(
+    () => tasks.length, [tasks]
   )
-
-  const task_pendente = useMemo(
-    () => task_qtd - task_concluded_qtd, [task_qtd, task_concluded_qtd]
-  )
-
-  useEffect(() => {
-    loadTaks();
-  }, [loadTaks]);
 
   return (
     <>
-      <Header title={'Resumo'} />
-      <Resumo>
-        { task_pendente === 0 ? (
-          <h2>Parabéns você concluiu todas as tarefas</h2>
-        ) : (
-          <h2>Existem {task_pendente} tarefas pendentes</h2>
-        )}
-      </Resumo>
+      <Header title={"Resumo"} />   
 
-      <p><b>Total Tarefas: </b>{task_qtd}</p>
-      <p><b>Tarefas concluídas: </b>{task_concluded_qtd}</p>
+      <Resumo>
+        { tasks_qtd - tasks_concluded_qtd === 0 ? (
+          <h2>Parabéns! Você concluiu todas as tarefas!</h2>
+        ) : (
+          <h2>Existem {tasks_qtd - tasks_concluded_qtd} tarefas pendentes.</h2>
+        )}
+        
+        <p><b>Total de tarefas:</b> {tasks_qtd}</p> 
+        <p><b>Tarefas concluídas:</b> {tasks_concluded_qtd}</p> 
+      </Resumo>
     </>
   )
 }

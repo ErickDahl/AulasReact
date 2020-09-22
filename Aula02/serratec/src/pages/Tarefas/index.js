@@ -6,7 +6,7 @@ import api from '../../Services/API';
 import Header from '../../components/Header';
 import Input from '../../components/Input';
 
-import {Form, ErrorMessage, Tasks } from './styles';
+import { Form, ErrorMessage, Tasks } from './styles';
 
 
 const Tarefas = () => {

@@ -1,11 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth';
 
 import logoImg from '../../assets/logo.png';
 
 import { Container, Title } from './styles';
 
 const Header = ({title}) => {
+  const {signOut} = useAuth();
+
   return (
     <>
       <Container>
@@ -21,6 +24,11 @@ const Header = ({title}) => {
             <Link to='/tarefas'>
               Tarefas
             </Link>
+          </li>
+          <li>
+            <span onClick={ () => signOut()}>
+              Sair
+            </span>
           </li>
         </ul>
       </Container>

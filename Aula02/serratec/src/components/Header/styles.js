@@ -25,6 +25,15 @@ export const Container = styled.div`
           color: #04d361;
         }
       }
+
+      span {
+        color: #333;
+        cursor: pointer;
+
+        &:hover {
+          color: #04d361;
+        }
+      }
     }
   }
 `;
