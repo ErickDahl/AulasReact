@@ -1,15 +1,19 @@
 import React from 'react';
 
-import {Container} from './styles';
+import Header from '../../components/Header';
 
+import { Container } from './styles';
 
 const Dashboard = () => {
 
-    return(
-        <Container ativo={false}>
-           <h1>Dashboard</h1> 
-        </Container>
-    )
+  return (
+    <>
+      <Header />
+      
+      <h1>Dashboard</h1>
+      <p className="texto">ReactJS</p>
+    </>
+  )
 }
 
 export default Dashboard;
