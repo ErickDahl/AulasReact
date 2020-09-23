@@ -21,7 +21,7 @@ const desconto = (percentual, itens) => {
   return itens;
 }
   
- console.log('1.', desconto(20, itens));
+// console.log('1.', desconto(20, itens));
 
 
 // 2.
@@ -32,8 +32,8 @@ const filtrar_itens_valor = (valor, itens)  => {
   });
 }
   
-//var itens_filtrados = filtrar_itens_valor(5, itens)
- //console.log('2.', itens_filtrados);
+var itens_filtrados = filtrar_itens_valor(5, itens)
+// console.log('2.', itens_filtrados);
   
 
 // 3.
@@ -68,6 +68,6 @@ const desconto_condicional = (valor_elegivel, percentual_desconto, itens) => {
   return desconto(percentual_desconto, itens_filtrados);
 }
   
-//const produtos_com_desconto_condicional = desconto_condicional(5.00, 20, itens);  
-//console.log('4.', produtos_com_desconto_condicional);
+const produtos_com_desconto_condicional = desconto_condicional(5.00, 20, itens);  
+console.log('4.', produtos_com_desconto_condicional);
   
